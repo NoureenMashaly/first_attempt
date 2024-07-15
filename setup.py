@@ -1,4 +1,4 @@
-#to make our project as a package as same as seaborn etc to be used later 
+ #to make our project as a package as same as seaborn etc to be used later 
 from setuptools import find_packages,setup
 from typing import List
 
@@ -10,7 +10,8 @@ def get_requirments(file_path:str)->List[str]:
     requirments=[]
     with open(file_path) as file_obj:
         requirments=file_obj.readlines()
-        requirments=[req.replace("\n","") for req in requirments]
+        #to remove the \n aka new line 
+        requirments=[req.replace("\n","") for req in requirments] 
         
         if HYPEN_E_DOT in requirments:
             requirments.remove(HYPEN_E_DOT)
@@ -20,8 +21,8 @@ def get_requirments(file_path:str)->List[str]:
 setup(
 name ='ml_project',
 version= '0.0.1',
-author= '',
-author_email='',
+author= 'Noureen Mashaly',
+author_email='noureenmashaly@gmail.com',
 packages= find_packages(),
 install_requires= get_requirments('requirments.txt')
 
